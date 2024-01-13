@@ -1,26 +1,21 @@
+import PostCard from "./PostCard";
+
 export default function MainSideHome() {
   return (
     <>
       <section className="flex basis-1/2 flex-wrap grow">
-        <div className="card w-auto bg-base-100 shadow-xl flex flex-wrap">
-          <figure>
-            <img
-              src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-              alt="Shoes"
-            />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">
-              Shoes!
-              <div className="badge badge-secondary">NEW</div>
-            </h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div className="card-actions justify-end">
-              <div className="badge badge-outline">Fashion</div>
-              <div className="badge badge-outline">Products</div>
-            </div>
-          </div>
-        </div>
+        <PostCard
+          postImg="https://res.cloudinary.com/practicaldev/image/fetch/s--i76U32xm--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/q5dd9j90v0kizkgsq0xw.jpg"
+          userImg="https://xsgames.co/randomusers/assets/avatars/male/22.jpg"
+          userName="Juano Lopez"
+          date="jan 13"
+          title="post de prueba"
+          hashtag1="vamos"
+          hashtag2="a ver"
+          hashtag3="si"
+          hashtag4="funciona"
+          timeToRead="mucho tiempo"
+        />
       </section>
     </>
   );
