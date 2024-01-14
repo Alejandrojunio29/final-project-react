@@ -2,8 +2,10 @@ import { useNavigate } from "react-router-dom";
 
 export default function PostCard(props) {
   const navigate = useNavigate();
+
   return (
     <>
+      <article key={`prod-${props.id}`}></article>
       <div
         onClick={() => {
           navigate("/postDetail");
