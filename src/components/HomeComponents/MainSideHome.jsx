@@ -14,7 +14,8 @@ export default function MainSideHome() {
           hashtag2="a ver"
           hashtag3="si"
           hashtag4="funciona"
-          timeToRead="mucho tiempo"
+          timeToRead="7 min
+          "
         />
       </section>
     </>

@@ -42,16 +42,16 @@ export default function PostCard(props) {
                 <a href="">😂</a>
                 <h5 className="ps-1">15 Reactions</h5>
               </button>
-              <button className=" btn border-hidden bg-inherit  btn-sm flex px-2 gap-1">
+              <button className=" btn border-hidden bg-inherit  btn-sm flex  gap-1">
                 <a href="">💬</a>
                 <h5>1 comments</h5>
               </button>
-              <div className="flex px-2 gap-1">
-                <h5>{props.timeToRead}</h5>
+              <button className="btn bg-transparent hover:bg-transparent border-hidden   btn-sm flex  gap-1">
+                <h5 className="text-sm">{props.timeToRead}</h5>
                 <a href="" className="hover:bg-blue-200">
                   🕒
                 </a>
-              </div>
+              </button>
             </div>
           </div>
         </div>
