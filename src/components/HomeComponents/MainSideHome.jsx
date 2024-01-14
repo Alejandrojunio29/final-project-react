@@ -16,7 +16,7 @@ export default function MainSideHome() {
       <section className="flex basis-1/2 flex-wrap grow">
         {posts.map((post) => {
           return (
-            <article key={`prod-${post.id}`}>
+            <article key={`post-${post.id}`}>
               <PostCard
                 postImg={post.postImg}
                 userImg={post.userImg}

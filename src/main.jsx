@@ -12,7 +12,7 @@ import CreatePost from "./pages/CreatePost.jsx";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
-  { path: "/postDetail", element: <PostDetail /> },
+  { path: "/posts/:id", element: <PostDetail /> },
   { path: "/login", element: <Login /> },
   { path: "/newUser", element: <NewUser /> },
   { path: "/createpost", element: <CreatePost /> },

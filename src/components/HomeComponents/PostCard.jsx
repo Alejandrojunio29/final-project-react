@@ -1,14 +1,22 @@
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 export default function PostCard(props) {
+  const [posts, setPosts] = useState([]);
   const navigate = useNavigate();
+  useEffect(() => {
+    fetch("http://localhost:3001/posts")
+      .then((response) => response.json())
+      .then((data) => {
+        setPosts(data.data);
+      });
+  }, []);
 
   return (
     <>
-      <article key={`prod-${props.id}`}></article>
       <div
         onClick={() => {
-          navigate("/postDetail");
+          navigate(`/posts/${posts._id}`);
         }}
         className="card w-auto bg-base-100 shadow-xl flex flex-wrap cursor-pointer"
       >
