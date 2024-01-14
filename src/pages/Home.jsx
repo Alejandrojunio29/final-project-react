@@ -7,8 +7,8 @@ export default function Home() {
   return (
     <>
       <MainNavbar />
-      <main className="justify-center grow  ">
-        <section className="flex flex-row flex-wrap justify-center  gap-2 xl:px-28 lg:px-14       ">
+      <main className="  bg-stone-100  justify-center grow  ">
+        <section className="flex flex-row flex-wrap justify-center pt-3 gap-2 xl:px-28 lg:px-14       ">
           <LeftSideHome />
           <MainSideHome />
           <RightSideHome />

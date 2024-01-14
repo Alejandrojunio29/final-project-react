@@ -3,8 +3,8 @@ import ElementList from "./ElementList";
 export default function LeftSideHome() {
   return (
     <>
-      <section className="hidden md:flex  basis-1/8 flex-wrap grow ">
-        <ul className="menu bg-base-200 w-auto rounded-box grow ">
+      <section className=" hidden md:flex  basis-1/8 flex-wrap grow ">
+        <ul className="menu bg-white w-auto rounded-box grow ">
           <ElementList
             img="https://img.icons8.com/emoji/48/house-emoji.png"
             name="Home"

@@ -4,7 +4,7 @@ export default function RightSideHome() {
   return (
     <>
       <section className=" basis-1/5 hidden lg:flex">
-        <ul className=" ">
+        <ul className="bg-white ">
           <li className=" list-item border rounded p-2 ">
             <h1 className=" font-semibold text-lg w-72 hover:text-indigo-500">
               #discuss

@@ -1,9 +1,11 @@
+import ElementList from "./HomeComponents/ElementList";
+
 export default function MainNavbar() {
   return (
     <>
-      <div className="navbar bg-base-100">
-        <div className="navbar-start">
-          <div className="dropdown">
+      <div className="navbar flex ps-32 p-0    ">
+        <div className="">
+          <div className="dropdown  xs:flex sm:hidden  ">
             <div
               tabIndex={0}
               role="button"
@@ -26,58 +28,76 @@ export default function MainNavbar() {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 "
             >
-              <li>
-                <a>Homepage</a>
-              </li>
-              <li>
-                <a>Portfolio</a>
-              </li>
-              <li>
-                <a>About</a>
-              </li>
+              <ul className="menu bg-white w-auto rounded-box grow ">
+                <ElementList
+                  img="https://img.icons8.com/emoji/48/house-emoji.png"
+                  name="Home"
+                />
+                <ElementList
+                  img="https://img.icons8.com/color/48/microphone.png"
+                  name="Podcasts"
+                />
+                <ElementList
+                  img="https://img.icons8.com/external-prettycons-flat-prettycons/47/external-videocamera-multimedia-prettycons-flat-prettycons.png"
+                  name="Videos"
+                />
+                <ElementList
+                  img="https://img.icons8.com/office/16/tags.png"
+                  name="Tags"
+                />
+                <ElementList
+                  img="https://img.icons8.com/fluency/48/light--v1.png"
+                  name="FAQ"
+                />
+                <ElementList
+                  img="https://img.icons8.com/external-anggara-flat-anggara-putra/32/external-bag-retail-anggara-flat-anggara-putra.png"
+                  name="Forem Shop"
+                />
+                <ElementList
+                  img="https://img.icons8.com/fluency/48/like.png"
+                  name="Advertise on DEV"
+                />
+                <ElementList
+                  img="https://img.icons8.com/windows/32/dev.png"
+                  name="About"
+                />
+                <ElementList
+                  img="https://img.icons8.com/external-smashingstocks-flat-smashing-stocks/66/external-trumpet-summer-party-smashingstocks-flat-smashing-stocks.png"
+                  name="Contact"
+                />
+                <ElementList
+                  img="https://img.icons8.com/3d-fluency/94/open-book--v2.png"
+                  name="Guides"
+                />
+                <ElementList
+                  img="https://img.icons8.com/emoji/48/thinking-face.png"
+                  name="Software comparisons"
+                />
+              </ul>
             </ul>
           </div>
         </div>
-        <div className="navbar-center">
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+        <div className="  gap-2">
+          <img
+            src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png"
+            alt=""
+            className="w-12  "
+          />
+          <input
+            type="text"
+            placeholder="Search..."
+            className="border rounded-md input-sm  hover:border-indigo-500 hidden md:flex"
+          />
         </div>
-        <div className="navbar-end">
-          <button className="btn btn-ghost btn-circle">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-              />
-            </svg>
+
+        <div className="navbar justify-end pe-28 gap-3">
+          <button className="btn bg-transparent hover:bg-blue-300/100 hover:underline hidden md:flex">
+            Log in
           </button>
-          <button className="btn btn-ghost btn-circle">
-            <div className="indicator">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-                />
-              </svg>
-              <span className="badge badge-xs badge-primary indicator-item"></span>
-            </div>
+          <button className="btn btn-outline btn-primary hover:underline">
+            Create Account
           </button>
         </div>
       </div>
