@@ -1,6 +1,9 @@
+import { useNavigate } from "react-router-dom";
+
 import ElementList from "./HomeComponents/ElementList";
 
 export default function MainNavbar() {
+  const navigate = useNavigate();
   return (
     <>
       <div className="navbar flex ps-32 p-0    ">
@@ -83,7 +86,10 @@ export default function MainNavbar() {
           <img
             src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png"
             alt=""
-            className="w-12  "
+            className="w-12 cursor-pointer  "
+            onClick={() => {
+              navigate("/");
+            }}
           />
           <input
             type="text"
@@ -93,10 +99,20 @@ export default function MainNavbar() {
         </div>
 
         <div className="navbar justify-end pe-28 gap-3">
-          <button className="btn bg-transparent hover:bg-blue-300/100 hover:underline hidden md:flex">
+          <button
+            onClick={() => {
+              navigate("/login");
+            }}
+            className="btn bg-transparent hover:bg-blue-300/100 hover:underline hidden md:flex"
+          >
             Log in
           </button>
-          <button className="btn btn-outline btn-primary hover:underline">
+          <button
+            onClick={() => {
+              navigate("/newUser");
+            }}
+            className="btn btn-outline btn-primary hover:underline"
+          >
             Create Account
           </button>
         </div>

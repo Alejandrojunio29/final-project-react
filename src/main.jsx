@@ -8,12 +8,14 @@ import Home from "./pages/Home.jsx";
 import PostDetail from "./pages/PostDetail.jsx";
 import Login from "./pages/Login.jsx";
 import NewUser from "./pages/NewUser.jsx";
+import CreatePost from "./pages/CreatePost.jsx";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
   { path: "/postDetail", element: <PostDetail /> },
   { path: "/login", element: <Login /> },
   { path: "/newUser", element: <NewUser /> },
+  { path: "/createpost", element: <CreatePost /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
