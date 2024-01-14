@@ -86,7 +86,6 @@ export default function Login() {
             <h3 className="flex text-sm py-4">
               By signing in, you are agreeing to our
               <h3 className="flex text-indigo-500 cursor-pointer justify-center">
-                {" "}
                 privacy policy, terms of use and code of conduct.
               </h3>
             </h3>
