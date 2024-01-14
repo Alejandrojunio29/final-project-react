@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 
 export default function PostDetail() {
   const { id } = useParams();
-  const [post, setPost] = useState([]);
+  const [post, setPost] = useState({});
   useEffect(() => {
     fetch(`http://localhost:3001/posts/${id}`)
       .then((response) => response.json())
@@ -49,6 +49,7 @@ export default function PostDetail() {
         </aside>
         <main className="flex flex-col ">
           <CardPostDetail
+            key={`post-${post._id}`}
             postImg={post.postImg}
             userImg={post.userImg}
             userName={post.userName}
@@ -61,29 +62,15 @@ export default function PostDetail() {
             timeToRead={post.timeToRead}
             postContent={post.postContent}
           />
-          {/* 
-          <CardPostDetail
-            className=""
-            postImg="https://res.cloudinary.com/practicaldev/image/fetch/s--i76U32xm--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/q5dd9j90v0kizkgsq0xw.jpg"
-            userImg="https://xsgames.co/randomusers/assets/avatars/male/22.jpg"
-            userName="Juano Lopez"
-            date="jan 13"
-            title="post de prueba"
-            hashtag1="vamos"
-            hashtag2="a ver"
-            hashtag3="si"
-            hashtag4="funciona"
-            timeToRead="7 min"
-            postContent="Este es el texto del contenido"
-          /> */}
-          <CommentSide userImg="https://xsgames.co/randomusers/assets/avatars/male/22.jpg" />
+
+          <CommentSide userImg={post.userImg} />
         </main>
 
         <aside className="hidden lg:grid  pe-3">
           <RightCardDetail
-            userImg="https://xsgames.co/randomusers/assets/avatars/male/22.jpg"
-            personal="Ingeniero, Mexicano, me gustan los videojuegos"
-            userName="Juano Lopez"
+            userImg={post.userImg}
+            personal={post.postContent}
+            userName={post.userName}
             university="Harvard"
             pronouns="El, Macho"
             job="the boss"

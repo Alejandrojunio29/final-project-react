@@ -109,7 +109,7 @@ export default function MainNavbar() {
           </button>
           <button
             onClick={() => {
-              navigate("/newUser");
+              navigate("/createAccount");
             }}
             className="btn btn-outline btn-primary hover:underline"
           >
