@@ -230,7 +230,7 @@ export default function CreatePost() {
         <div className="flex  justify-center bg-stone-100">
           <div className="flex gap-4 pe-72 py-3 bg-stone-100">
             <button
-              onClick={() => navigate(`/`)}
+              onClick={() => navigate(`/posts/${post._id}`)}
               className="btn btn-primary"
               type="submit"
               value={"POST"}

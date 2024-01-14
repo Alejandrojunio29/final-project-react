@@ -101,6 +101,15 @@ export default function MainNavbar() {
         <div className="navbar justify-end pe-28 gap-3">
           <button
             onClick={() => {
+              navigate("/createAccount");
+            }}
+            className="btn hidden btn-outline btn-primary hover:underline"
+          >
+            Create Post
+          </button>
+
+          <button
+            onClick={() => {
               navigate("/login");
             }}
             className="btn bg-transparent hover:bg-blue-300/100 hover:underline hidden md:flex"
