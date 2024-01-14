@@ -1,7 +1,15 @@
+import { useNavigate } from "react-router-dom";
+
 export default function PostCard(props) {
+  const navigate = useNavigate();
   return (
     <>
-      <div className="card w-auto bg-base-100 shadow-xl flex flex-wrap">
+      <div
+        onClick={() => {
+          navigate("/postDetail");
+        }}
+        className="card w-auto bg-base-100 shadow-xl flex flex-wrap cursor-pointer"
+      >
         <figure>
           <img src={props.postImg} alt="postImg" />
         </figure>

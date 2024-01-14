@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import ButtonLogin from "../components/LoginComponents/ButtonLogin";
 
 export default function Login() {
+  const navigate = useNavigate();
   return (
     <>
       <section className="container mx-auto flex justify-around pt-8  ">
@@ -9,7 +11,10 @@ export default function Login() {
             <img
               src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/original_logo_0DliJcfsTcciZen38gX9.png"
               alt=""
-              className="w-16 flex  "
+              className="w-16 flex  cursor-pointer "
+              onClick={() => {
+                navigate("/");
+              }}
             />
           </div>
           <div className="flex justify-center pt-4">
