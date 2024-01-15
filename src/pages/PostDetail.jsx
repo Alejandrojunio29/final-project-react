@@ -2,8 +2,20 @@ import MainNavbar from "../components/MainNavbar";
 import CardPostDetail from "../components/PostDetailComponents/CardPostDetail";
 import RightCardDetail from "../components/PostDetailComponents/RightCardDetail";
 import CommentSide from "../components/PostDetailComponents/CommentSide";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 export default function PostDetail() {
+  const { id } = useParams();
+  const [post, setPost] = useState([]);
+  useEffect(() => {
+    fetch(`http://localhost:3001/posts/${id}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setPost(data.data);
+        console.log("este es el id", id);
+      });
+  }, [id]);
   return (
     <>
       <MainNavbar />
@@ -37,6 +49,20 @@ export default function PostDetail() {
         </aside>
         <main className="flex flex-col ">
           <CardPostDetail
+            postImg={post.postImg}
+            userImg={post.userImg}
+            userName={post.userName}
+            date={post.date}
+            title={post.title}
+            hashtag1={post.hashtag1}
+            hashtag2={post.hashtag2}
+            hashtag3={post.hashtag3}
+            hashtag4={post.hashtag4}
+            timeToRead={post.timeToRead}
+            postContent={post.postContent}
+          />
+          {/* 
+          <CardPostDetail
             className=""
             postImg="https://res.cloudinary.com/practicaldev/image/fetch/s--i76U32xm--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/q5dd9j90v0kizkgsq0xw.jpg"
             userImg="https://xsgames.co/randomusers/assets/avatars/male/22.jpg"
@@ -47,10 +73,9 @@ export default function PostDetail() {
             hashtag2="a ver"
             hashtag3="si"
             hashtag4="funciona"
-            timeToRead="7 min
-          "
+            timeToRead="7 min"
             postContent="Este es el texto del contenido"
-          />
+          /> */}
           <CommentSide userImg="https://xsgames.co/randomusers/assets/avatars/male/22.jpg" />
         </main>
 

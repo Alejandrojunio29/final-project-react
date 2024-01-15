@@ -1,22 +1,37 @@
 import PostCard from "./PostCard";
+import { useEffect, useState } from "react";
 
 export default function MainSideHome() {
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:3001/posts")
+      .then((response) => response.json())
+      .then((data) => {
+        setPosts(data.data);
+        console.log("esta es la data de main", data);
+      });
+  }, []);
   return (
     <>
       <section className="flex basis-1/2 flex-wrap grow">
-        <PostCard
-          postImg="https://res.cloudinary.com/practicaldev/image/fetch/s--i76U32xm--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/q5dd9j90v0kizkgsq0xw.jpg"
-          userImg="https://xsgames.co/randomusers/assets/avatars/male/22.jpg"
-          userName="Juano Lopez"
-          date="jan 13"
-          title="post de prueba"
-          hashtag1="vamos"
-          hashtag2="a ver"
-          hashtag3="si"
-          hashtag4="funciona"
-          timeToRead="7 min
-          "
-        />
+        {posts.map((post) => {
+          return (
+            <article key={`post-${post.id}`}>
+              <PostCard
+                postImg={post.postImg}
+                userImg={post.userImg}
+                userName={post.userName}
+                date={post.date}
+                title={post.title}
+                hashtag1={post.hashtag1}
+                hashtag2={post.hashtag2}
+                hashtag3={post.hashtag3}
+                hashtag4={post.hashtag4}
+                timeToRead={post.timeToRead}
+              />
+            </article>
+          );
+        })}
       </section>
     </>
   );
