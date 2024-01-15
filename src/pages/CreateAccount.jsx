@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import ButtonLogin from "../components/LoginComponents/ButtonLogin";
 
-export default function Login() {
+export default function CreateAccount() {
   const navigate = useNavigate();
   return (
     <>
@@ -42,51 +42,22 @@ export default function Login() {
               logoImg="https://img.icons8.com/color/48/twitter--v1.png"
               brand="Twitter"
             />
-          </div>
-          <div className="pt-4 ">
-            <hr></hr>
-            <div className="flex justify-center -mt-3">OR</div>
-          </div>
 
-          <div className="pt-3 ">
-            <h2 className="text-lg font-bold">Email</h2>
-            <input
-              type="text"
-              name=""
-              id=""
-              className=" w-full border rounded input-sm"
-            />
-          </div>
-          <div className="pt-3">
-            <h2 className="text-lg font-bold">Password</h2>
-            <input
-              type="Password"
-              name=""
-              id=""
-              className="w-full border rounded input-sm"
-            />
-          </div>
-          <div>
-            <div className="form-control flex flex-row justify-between pt-2  ">
-              <div className="flex flex-row ">
-                <label className="label cursor-pointer">
-                  <input
-                    type="checkbox"
-                    className="checkbox checkbox-primary"
-                  />
-                  <span className="label-text ps-2">Remember me</span>
-                </label>
-              </div>
-              <h3 className=" text-indigo-500 pt-2 cursor-pointer text-sm">
-                Forgot Password?
-              </h3>
+            <div className="flex grow pt-3 ">
+              <button
+                onClick={() => navigate("/newUser")}
+                className="btn btn-wide bg-transparent flex grow "
+              >
+                <img
+                  src="https://img.icons8.com/ios-filled/50/mail.png"
+                  alt=""
+                  className="w-6 "
+                />
+                Continue with Email
+              </button>
             </div>
           </div>
-          <div className="pt-3">
-            <button className="btn btn-wide w-full text-white bg-blue-600 hover:bg-blue-700">
-              Log in
-            </button>
-          </div>
+
           <div className=" flex flex-row">
             <h3 className="flex text-sm py-4">
               By signing in, you are agreeing to our
@@ -98,12 +69,12 @@ export default function Login() {
           <hr></hr>
           <div className="flex flex-row pt-3 pb-8 justify-center gap-2">
             <h4 className="flex">
-              New to DEV community?
+              Already have an account?
               <h3
-                onClick={() => navigate("/createAccount")}
+                onClick={() => navigate("/login")}
                 className=" flex text-indigo-500 cursor-pointer"
               >
-                Create account
+                Log in
               </h3>
             </h4>
           </div>
