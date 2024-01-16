@@ -6,7 +6,6 @@ export default function InputNewUser(props) {
         <input
           type={props.typeOfInput}
           name=""
-          id=""
           className="w-full border rounded input-sm"
         />
       </div>

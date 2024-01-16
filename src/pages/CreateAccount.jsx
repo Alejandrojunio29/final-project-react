@@ -61,21 +61,21 @@ export default function CreateAccount() {
           <div className=" flex flex-row">
             <h3 className="flex text-sm py-4">
               By signing in, you are agreeing to our
-              <h3 className="flex text-indigo-500 cursor-pointer justify-center">
+              <p className="flex text-indigo-500 cursor-pointer justify-center">
                 privacy policy, terms of use and code of conduct.
-              </h3>
+              </p>
             </h3>
           </div>
           <hr></hr>
           <div className="flex flex-row pt-3 pb-8 justify-center gap-2">
             <h4 className="flex">
               Already have an account?
-              <h3
+              <p
                 onClick={() => navigate("/login")}
                 className=" flex text-indigo-500 cursor-pointer"
               >
                 Log in
-              </h3>
+              </p>
             </h4>
           </div>
         </div>
