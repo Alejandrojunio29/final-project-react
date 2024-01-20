@@ -1,5 +1,4 @@
 // import InputNewUser from "../components/NewUserComponents/InputNewUser";
-import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
@@ -25,7 +24,7 @@ export default function NewUser() {
       headers: { "Content-Type": "application/json" },
     });
     if (response.ok) {
-      alert("User was created succesfully");
+      navigate("/login");
     } else {
       alert("User was not created, try again");
     }
@@ -202,17 +201,11 @@ export default function NewUser() {
                 </p>
               )}
             </div>
-
-            <Link to="/login">
-              <input
-                // onClick={() => {
-                //   navigate("/login");
-                // }}
-                type="submit"
-                value="Sign up"
-                className="bg-blue-600 hover:bg-indigo-700 text-white w-full rounded p-2 cursor-pointer"
-              />{" "}
-            </Link>
+            <input
+              type="submit"
+              value="Sign up"
+              className="bg-blue-600 hover:bg-indigo-700 text-white w-full rounded p-2 cursor-pointer"
+            />{" "}
           </div>
         </section>
       </form>

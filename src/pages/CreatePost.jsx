@@ -26,7 +26,7 @@ export default function CreatePost() {
     let dataTest = await response.json();
     console.log("inf data", dataTest.data);
     if (response.ok) {
-      alert("Post created!!!");
+      navigate("/");
     } else {
       alert("Something was wrong");
     }
