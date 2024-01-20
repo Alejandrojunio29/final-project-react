@@ -1,72 +1,39 @@
-import InputNewUser from "../components/NewUserComponents/InputNewUser";
-import { useState } from "react";
+// import InputNewUser from "../components/NewUserComponents/InputNewUser";
+import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
 export default function NewUser() {
   const navigate = useNavigate();
-  const [name, setName] = useState("");
-  const [username, setUsername] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [userImg, setUserImg] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [isFailed, setIsFailed] = useState(false);
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-  function onNameChange(event) {
-    setName(event.target.value);
-  }
-  function onUserNameChange(event) {
-    setUsername(event.target.value);
-  }
-  function onLastNameChange(event) {
-    setLastName(event.target.value);
-  }
-  function onUserImgChange(event) {
-    setUserImg(event.target.value);
-  }
-  function onEmailChange(event) {
-    setEmail(event.target.value);
-  }
-
-  function onPasswordChange(event) {
-    setPassword(event.target.value);
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    setIsLoading(true);
-
-    fetch("http://localhost:3001/users", {
+  async function onSubmit(data) {
+    const response = await fetch("http://localhost:3001/users", {
       method: "POST",
       body: JSON.stringify({
-        name,
-        username,
-        lastName,
-        userImg,
-        email,
-        password,
+        name: data.name,
+        lastName: data.lastName,
+        userName: data.userName,
+        email: data.email,
+        password: data.password,
+        userImg: data.userImg,
       }),
-      headers: { "Content-Type": "application/Json" },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data?.token != null) {
-          localStorage.setItem("token", data.token);
-          setIsLoading(false);
-          setIsFailed(false);
-          navigate("/");
-        } else {
-          setIsLoading(false);
-          setIsFailed(true);
-        }
-      });
+      headers: { "Content-Type": "application/json" },
+    });
+    if (response.ok) {
+      alert("User was created succesfully");
+    } else {
+      alert("User was not created, try again");
+    }
   }
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <section className="container mx-auto flex  justify-center pt-8 ">
           <div className="flex flex-col  border  px-36 py-12 ">
             <div className="flex flex-wrap justify-center">
@@ -79,7 +46,6 @@ export default function NewUser() {
                 }}
               />
             </div>
-
             <h1 className="flex text-lg font-bold"> Create your account</h1>
             <div className="flex flex-col ">
               <h2>Profile image</h2>
@@ -87,63 +53,166 @@ export default function NewUser() {
                 <input type="file" className="file-input  max-w-xs" />
               </div>
             </div>
-            <InputNewUser
+            {/* <InputNewUser
               infToAsk="Profile Image"
               typeOfInput="text"
-              onChange={onUserImgChange}
-              value={userImg}
-              required
+              {...register("userImg", {
+                required: { value: true, message: "Profile image is required" },
+              })}
             />
-            <InputNewUser
+            {errors.name && (
+              <p className="text-red-700 text-xs">{errors.userImg?.message}</p>
+            )} */}
+            <div className="flex flex-col pt-3">
+              <h2 className="text-base font-semibold pb-1">Profile Img 1</h2>
+              <input
+                type="text"
+                className="w-full border rounded input-sm"
+                {...register("userImg", {
+                  required: {
+                    value: true,
+                    message: "Profile image is required",
+                  },
+                })}
+              />
+              {errors.name && (
+                <p className="text-red-700 text-xs">
+                  {errors.userImg?.message}
+                </p>
+              )}
+            </div>
+            {/* <InputNewUser
               infToAsk="Name"
               typeOfInput="text"
-              onChange={onNameChange}
-              value={name}
-              required
+              {...register("name", {
+                required: { value: true, message: "Name is required" },
+              })}
             />
-
-            <InputNewUser
-              infToAsk="LastName"
+            {errors.name && (
+              <p className="text-red-700 text-xs">{errors.name?.message}</p>
+            )} */}
+            <div className="flex flex-col pt-3">
+              <h2 className="text-base font-semibold pb-1">Name 1</h2>
+              <input
+                type="text"
+                className="w-full border rounded input-sm"
+                {...register("name", {
+                  required: { value: true, message: "Name is required" },
+                })}
+              />
+              {errors.name && (
+                <p className="text-red-700 text-xs">{errors.name?.message}</p>
+              )}
+            </div>
+            {/* <InputNewUser
+              infToAsk="Last Name"
               typeOfInput="text"
-              onChange={onLastNameChange}
-              value={lastName}
-              required
+              {...register("lastName", {
+                required: { value: true, message: "Last name is required" },
+              })}
             />
-
-            <InputNewUser
-              infToAsk="UserName"
+            {errors.lastName && (
+              <p className="text-red-700 text-xs">{errors.lastName?.message}</p>
+            )} */}
+            <div className="flex flex-col pt-3">
+              <h2 className="text-base font-semibold pb-1">Last Name 1</h2>
+              <input
+                type="text"
+                className="w-full border rounded input-sm"
+                {...register("lastName", {
+                  required: { value: true, message: "Last name is required" },
+                })}
+              />
+              {errors.lastName && (
+                <p className="text-red-700 text-xs">
+                  {errors.lastName?.message}
+                </p>
+              )}
+            </div>
+            {/* <InputNewUser
+              infToAsk="User Name"
               typeOfInput="text"
-              onChange={onUserNameChange}
-              value={username}
-              required
+              {...register("userName", {
+                required: { value: true, message: "User Name is required" },
+              })}
             />
-            <InputNewUser
+            {errors.userName && (
+              <p className="text-red-700 text-xs">{errors.userName?.message}</p>
+            )} */}
+            <div className="flex flex-col pt-3">
+              <h2 className="text-base font-semibold pb-1">User Name 1</h2>
+              <input
+                type="text"
+                className="w-full border rounded input-sm"
+                {...register("userName", {
+                  required: { value: true, message: "User Name is required" },
+                })}
+              />
+              {errors.userName && (
+                <p className="text-red-700 text-xs">
+                  {errors.userName?.message}
+                </p>
+              )}
+            </div>
+            {/* <InputNewUser
               infToAsk="Email"
               typeOfInput="text"
-              onChange={onEmailChange}
-              value={email}
-              required
+              {...register("email", {
+                required: { value: true, message: "Email is required" },
+              })}
             />
-
-            <InputNewUser
+            {errors.email && (
+              <p className="text-red-700 text-xs">{errors.email?.message}</p>
+            )} */}
+            <div className="flex flex-col pt-3">
+              <h2 className="text-base font-semibold pb-1">Email 1</h2>
+              <input
+                type="text"
+                className="w-full border rounded input-sm"
+                {...register("email", {
+                  required: { value: true, message: "Email is required" },
+                })}
+              />
+              {errors.email && (
+                <p className="text-red-700 text-xs">{errors.email?.message}</p>
+              )}
+            </div>
+            {/* <InputNewUser
               infToAsk="Password"
-              typeOfInput={isPasswordVisible ? "text" : "password"}
-              onChange={onPasswordChange}
-              value={password}
-              required
+              typeOfInput="password"
+              {...register("password", {
+                required: { value: true, message: "Password is required" },
+              })}
             />
+            {errors.password && (
+              <p className="text-red-700 text-xs">{errors.password?.message}</p>
+            )} */}
+            <div className="flex flex-col pt-3">
+              <h2 className="text-base font-semibold pb-1">Password 1</h2>
+              <input
+                type="password"
+                className="w-full border rounded input-sm"
+                {...register("password", {
+                  required: { value: true, message: "Password is required" },
+                })}
+              />
+              {errors.password && (
+                <p className="text-red-700 text-xs">
+                  {errors.password?.message}
+                </p>
+              )}
+            </div>
 
-            <input
-              type="submit"
-              disabled={isLoading} //esto desabilita el boton y no permite que clicken denuevo si la function isLoading esta activa
-              value={isLoading ? "wait ..." : "Sign up"}
-              className="bg-blue-600 hover:bg-indigo-700 text-white w-full rounded p-2 cursor-pointer"
-            />
-            {isFailed && ( //Esto es conditional Rendering, si isFailed renderiza "P"
-              <p className=" pt-2 bg-red-500 text-white p-2 rounded w-full">
-                Datos invalidos
-              </p>
-            )}
+            <Link to="/login">
+              <input
+                // onClick={() => {
+                //   navigate("/login");
+                // }}
+                type="submit"
+                value="Sign up"
+                className="bg-blue-600 hover:bg-indigo-700 text-white w-full rounded p-2 cursor-pointer"
+              />{" "}
+            </Link>
           </div>
         </section>
       </form>
